@@ -1,0 +1,6 @@
+{
+  "name": "BOLT COMPUTER SERVICES",
+  "description": "Professional computer services, repairs, upgrades and technology solutions for businesses and individuals in Nigeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

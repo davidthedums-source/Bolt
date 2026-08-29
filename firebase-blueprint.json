@@ -1,0 +1,198 @@
+{
+  "entities": {
+    "ticket": {
+      "title": "Repair & Service Ticket",
+      "description": "Customer service booking, repair inquiry, or diagnostic request",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ticket ID (e.g. BCS-123456)",
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "trackingCode": {
+          "type": "string",
+          "description": "Customer lookup tracking code",
+          "maxLength": 32
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Full name of the customer",
+          "maxLength": 100
+        },
+        "customerEmail": {
+          "type": "string",
+          "description": "Email address of the customer",
+          "maxLength": 150
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Phone number or WhatsApp contact",
+          "maxLength": 30
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Type of computer or device (e.g. Laptop, Desktop)",
+          "maxLength": 50
+        },
+        "deviceModel": {
+          "type": "string",
+          "description": "Specific device brand and model",
+          "maxLength": 100
+        },
+        "serviceCategory": {
+          "type": "string",
+          "description": "Category of repair or service needed",
+          "maxLength": 100
+        },
+        "issueDescription": {
+          "type": "string",
+          "description": "Detailed description of the issue or requirement",
+          "maxLength": 2000
+        },
+        "urgency": {
+          "type": "string",
+          "description": "Urgency level: standard, express, urgent",
+          "enum": ["standard", "express", "urgent"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of repair or quote",
+          "enum": ["submitted", "diagnosing", "in-progress", "testing", "ready", "completed", "cancelled"]
+        },
+        "technicianNotes": {
+          "type": "string",
+          "description": "Diagnostic findings and engineer notes",
+          "maxLength": 2000
+        },
+        "estimatedCost": {
+          "type": "string",
+          "description": "Estimated repair price or quote range in NGN",
+          "maxLength": 50
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of customer if logged in, or anonymous ID",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation ISO timestamp or server timestamp",
+          "maxLength": 50
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last updated ISO timestamp or server timestamp",
+          "maxLength": 50
+        }
+      },
+      "required": ["trackingCode", "customerName", "customerPhone", "serviceCategory", "status"]
+    },
+    "contactMessage": {
+      "title": "Contact Message",
+      "description": "Direct message or inquiry sent from the contact section",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Sender name",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "Sender email",
+          "maxLength": 150
+        },
+        "phone": {
+          "type": "string",
+          "description": "Sender phone number",
+          "maxLength": 30
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject of the message",
+          "maxLength": 150
+        },
+        "message": {
+          "type": "string",
+          "description": "Message content",
+          "maxLength": 3000
+        },
+        "status": {
+          "type": "string",
+          "description": "Message read status",
+          "enum": ["unread", "replied", "archived"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp",
+          "maxLength": 50
+        }
+      },
+      "required": ["name", "email", "message", "status"]
+    },
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Customer or Staff account metadata",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 150
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name",
+          "maxLength": 100
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Profile picture URL",
+          "maxLength": 500
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number",
+          "maxLength": 30
+        },
+        "role": {
+          "type": "string",
+          "description": "Account role: customer or admin",
+          "enum": ["customer", "admin"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account creation timestamp",
+          "maxLength": 50
+        }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/tickets/{ticketId}": {
+      "schema": {
+        "$ref": "#/entities/ticket"
+      },
+      "description": "Customer service bookings and hardware repair tickets"
+    },
+    "/contact_messages/{messageId}": {
+      "schema": {
+        "$ref": "#/entities/contactMessage"
+      },
+      "description": "Contact form submissions and inquiries"
+    },
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/userProfile"
+      },
+      "description": "User profile records and account role assignments"
+    }
+  }
+}
