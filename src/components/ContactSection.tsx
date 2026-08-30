@@ -377,7 +377,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService, 
                           required
                           value={quoteForm.phone}
                           onChange={(e) => setQuoteForm({ ...quoteForm, phone: e.target.value })}
-                          placeholder="e.g. 0803 123 4567"
+                          placeholder="e.g. 0813 925 9220"
                           className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400"
                         />
                       </div>

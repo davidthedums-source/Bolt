@@ -77,7 +77,7 @@ export const GmailHub: React.FC<GmailHubProps> = ({
           setToEmail(preselectedTicket.customerEmail);
         }
         setSubject(`Bolt Computer Services - Repair Update for ${preselectedTicket.deviceType || 'Device'} [${preselectedTicket.trackingCode}]`);
-        setBodyText(`Dear ${preselectedTicket.customerName},\n\nThis is an update from Bolt Computer Services regarding your ${preselectedTicket.deviceType || 'device'} (Tracking: ${preselectedTicket.trackingCode}).\n\nCurrent Status: ${preselectedTicket.status.toUpperCase()}\nTechnician Notes: ${preselectedTicket.technicianNotes || 'Diagnostic in progress.'}\n\nEstimated Cost: ${preselectedTicket.estimatedCost || 'N/A'}\n\nPlease let us know if you have any questions.\n\nBest regards,\nBolt Computer Services Desk\nPhone: +234 810 522 7559`);
+        setBodyText(`Dear ${preselectedTicket.customerName},\n\nThis is an update from Bolt Computer Services regarding your ${preselectedTicket.deviceType || 'device'} (Tracking: ${preselectedTicket.trackingCode}).\n\nCurrent Status: ${preselectedTicket.status.toUpperCase()}\nTechnician Notes: ${preselectedTicket.technicianNotes || 'Diagnostic in progress.'}\n\nEstimated Cost: ${preselectedTicket.estimatedCost || 'N/A'}\n\nPlease let us know if you have any questions.\n\nBest regards,\nBolt Computer Services Desk\nPhone: +234 813 925 9220`);
       }
     }
   }, [initialRecipient, initialSubject, initialBody, preselectedTicket]);

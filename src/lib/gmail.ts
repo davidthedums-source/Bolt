@@ -279,12 +279,12 @@ SERVICE SUMMARY:
 • Estimated Total Cost: ${params.estimate || 'To be confirmed'}
 • Warranty Period: 90-Day Comprehensive Warranty
 
-Please reply to this email or contact our support team at +234 810 522 7559 to approve this estimate so our technicians can proceed immediately with component repair.
+Please reply to this email or contact our support team at +234 813 925 9220 to approve this estimate so our technicians can proceed immediately with component repair.
 
 Best regards,
 Bolt Computer Services Engineering Team
 Shop 52, Ogba Multi-Purpose Shopping Complex, Lagos, Nigeria
-Phone: +234 810 522 7559 | Email: boltcybercafe@gmail.com`
+Phone: +234 813 925 9220 | Email: boltcybercafe@gmail.com`
   },
   {
     id: 'repair-ready',
@@ -305,7 +305,7 @@ Thank you for trusting Bolt Computer Services!
 
 Best regards,
 Bolt Computer Services Technical Desk
-Phone: +234 810 522 7559`
+Phone: +234 813 925 9220`
   },
   {
     id: 'hardware-test-pass',
@@ -325,7 +325,7 @@ Feel free to reach out if you have any questions.
 
 Warm regards,
 Bolt Computer Services Laboratory
-Email: boltcybercafe@gmail.com | WhatsApp: +234 810 522 7559`
+Email: boltcybercafe@gmail.com | WhatsApp: +234 813 925 9220`
   },
   {
     id: 'general-followup',
@@ -337,7 +337,7 @@ Thank you for reaching out to Bolt Computer Services. We have received your inqu
 
 How can we best support your hardware repair, software configuration, or workstation procurement needs today?
 
-You can reply directly to this email or chat with us on WhatsApp at +234 810 522 7559.
+You can reply directly to this email or chat with us on WhatsApp at +234 813 925 9220.
 
 Sincerely,
 Customer Support Team

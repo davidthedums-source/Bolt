@@ -450,7 +450,7 @@ export const QuickQuoteModal: React.FC<QuickQuoteModalProps> = ({
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="0803 123 4567"
+                    placeholder="0813 925 9220"
                     className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
