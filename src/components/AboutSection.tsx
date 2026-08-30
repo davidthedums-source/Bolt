@@ -11,6 +11,7 @@ import {
   Layers
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/mockData';
+import safeLabMotherboardImg from '../assets/images/safe_lab_motherboard_1788083516680.jpg';
 
 interface AboutSectionProps {
   onOpenQuoteModal: () => void;
@@ -60,8 +61,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
               {/* Image 1: Main Workshop Precision */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-rose-200 col-span-2 sm:col-span-1 h-56 sm:h-64 bg-slate-900">
                 <img 
-                  src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" 
-                  alt="Motherboard diagnostic and hardware testing"
+                  src={safeLabMotherboardImg} 
+                  alt="Motherboard diagnostic and hardware testing in ESD-Safe Lab"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                   referrerPolicy="no-referrer"
@@ -69,7 +70,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 text-white pointer-events-none">
                   <p className="text-xs font-bold">ESD-Safe Lab</p>
-                  <p className="text-[10px] text-slate-200">Micro-soldering Workstation</p>
+                  <p className="text-[10px] text-slate-200">Micro-soldering &amp; Hardware Diagnostics</p>
                 </div>
               </div>
 
