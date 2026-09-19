@@ -8,7 +8,6 @@ import {
   ChevronRight,
   ShieldCheck,
   Clock,
-  Search,
   User,
   ShieldAlert
 } from 'lucide-react';
@@ -17,13 +16,12 @@ import { useAuth } from '../context/AuthContext';
 
 interface NavbarProps {
   onOpenQuoteModal: (prefillCategory?: string) => void;
-  onOpenTrackerModal: () => void;
+  onOpenTrackerModal?: () => void;
   onOpenPortalModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenQuoteModal,
-  onOpenTrackerModal,
   onOpenPortalModal
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -136,16 +134,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Right Action buttons */}
           <div className="hidden sm:flex items-center gap-2">
             
-            {/* Live Diagnostic Tracker */}
-            <button
-              onClick={onOpenTrackerModal}
-              id="nav-track-button"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-blue-600 hover:bg-blue-50 border border-slate-200 rounded-lg transition-colors cursor-pointer"
-            >
-              <Search className="w-3.5 h-3.5 text-blue-600" />
-              <span>Track Repair</span>
-            </button>
-
             {/* Portal / Account Button */}
             <button
               onClick={onOpenPortalModal}
@@ -190,13 +178,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Menu Toggle */}
           <div className="flex lg:hidden items-center gap-2">
             <button
-              onClick={onOpenTrackerModal}
-              className="text-xs font-bold px-2.5 py-1.5 bg-slate-100 text-slate-700 rounded-lg sm:hidden flex items-center gap-1"
-            >
-              <Search className="w-3 h-3 text-blue-600" />
-              <span>Track</span>
-            </button>
-            <button
               onClick={() => onOpenQuoteModal()}
               className="text-xs font-bold px-3 py-1.5 bg-blue-600 text-white rounded-lg sm:hidden"
             >
@@ -239,16 +220,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="pt-2 space-y-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenTrackerModal();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold text-slate-800 bg-slate-100 hover:bg-slate-200"
-            >
-              <Search className="w-4 h-4 text-blue-600" />
-              <span>Track Device Repair Status</span>
-            </button>
 
             <button
               onClick={() => {

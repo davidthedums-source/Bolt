@@ -164,7 +164,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   onClick={() => onOpenQuoteModal(service.title)}
                   className="px-3 py-1.5 text-xs font-bold bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white rounded-lg transition-colors cursor-pointer"
                 >
-                  Book Service
+                  Get Quote
                 </button>
               </div>
 

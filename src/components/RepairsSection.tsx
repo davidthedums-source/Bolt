@@ -21,7 +21,7 @@ interface RepairsSectionProps {
   onOpenTrackerModal?: () => void;
 }
 
-export const RepairsSection: React.FC<RepairsSectionProps> = ({ onOpenQuoteModal, onOpenTrackerModal }) => {
+export const RepairsSection: React.FC<RepairsSectionProps> = ({ onOpenQuoteModal }) => {
   const [selectedIssue, setSelectedIssue] = useState<string>('no-power');
 
   const commonIssues = [
@@ -244,7 +244,7 @@ export const RepairsSection: React.FC<RepairsSectionProps> = ({ onOpenQuoteModal
                 onClick={() => onOpenQuoteModal('Motherboard Diagnostic & Repair')}
                 className="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
-                <span>Book Motherboard Diagnostic</span>
+                <span>Request Motherboard Diagnostic</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -379,7 +379,7 @@ export const RepairsSection: React.FC<RepairsSectionProps> = ({ onOpenQuoteModal
                   className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-colors cursor-pointer"
                 >
                   <Wrench className="w-4 h-4" />
-                  <span>Book Inspection for This Fault</span>
+                  <span>Request Fault Inspection</span>
                 </button>
                 <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -390,33 +390,6 @@ export const RepairsSection: React.FC<RepairsSectionProps> = ({ onOpenQuoteModal
 
           </div>
         </div>
-
-        {/* Live Tracking Banner Callout */}
-        {onOpenTrackerModal && (
-          <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 border border-emerald-500/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4 text-left">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
-                <Search className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-base font-bold font-display text-white">
-                  Already have a device in our Ikeja repair laboratory?
-                </h4>
-                <p className="text-xs text-slate-300">
-                  Enter your tracking code (e.g. BCS-892401) to check real-time workbench status, component testing, and invoice.
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={onOpenTrackerModal}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black flex items-center justify-center gap-2 shrink-0 transition-colors shadow-md shadow-emerald-500/20 cursor-pointer"
-            >
-              <Search className="w-4 h-4" />
-              <span>Launch Live Diagnostic Tracker</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        )}
 
       </div>
     </section>

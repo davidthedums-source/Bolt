@@ -113,16 +113,6 @@ export const Footer: React.FC<FooterProps> = ({
               <li><a href="#why-bolt" className="hover:text-blue-400 transition-colors">Why Choose Bolt</a></li>
               <li><a href="#about" className="hover:text-rose-400 transition-colors">About Us</a></li>
               <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Contact &amp; Location</a></li>
-              {onOpenTrackerModal && (
-                <li>
-                  <button 
-                    onClick={onOpenTrackerModal} 
-                    className="text-emerald-400 hover:text-emerald-300 font-semibold cursor-pointer text-left"
-                  >
-                    &bull; Track Live Repair
-                  </button>
-                </li>
-              )}
               {onOpenPortalModal && (
                 <li>
                   <button 

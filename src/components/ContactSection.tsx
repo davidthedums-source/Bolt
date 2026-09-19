@@ -300,7 +300,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService, 
                     </p>
 
                     <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/40 max-w-sm mx-auto space-y-1">
-                      <span className="text-[11px] font-bold text-slate-400 uppercase">Your Tracking Code</span>
+                      <span className="text-[11px] font-bold text-slate-400 uppercase">Your Reference Code</span>
                       <div className="flex items-center justify-center gap-2">
                         <span className="text-2xl font-black font-mono text-cyan-400 tracking-wider">
                           {createdTicket.trackingCode}
@@ -315,18 +315,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService, 
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                      {onTrackTicket && (
-                        <button
-                          onClick={() => onTrackTicket(createdTicket.trackingCode)}
-                          className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2"
-                        >
-                          <span>Track Progress Now</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      )}
                       <button
                         onClick={handleWhatsAppWithTicket}
-                        className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2"
+                        className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2"
                       >
                         <MessageSquare className="w-4 h-4 fill-white" />
                         <span>WhatsApp Engineer</span>

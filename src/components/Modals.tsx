@@ -23,13 +23,13 @@ import { createServiceTicket } from '../lib/firebase';
 interface ServiceDetailModalProps {
   service: ServiceItem | null;
   onClose: () => void;
-  onBookService: (serviceTitle: string) => void;
+  onRequestQuote: (serviceTitle: string) => void;
 }
 
 export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   service,
   onClose,
-  onBookService
+  onRequestQuote
 }) => {
   if (!service) return null;
 
@@ -116,12 +116,12 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             <button
               onClick={() => {
                 onClose();
-                onBookService(service.title);
+                onRequestQuote(service.title);
               }}
               className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold shadow-md shadow-purple-600/20 flex items-center justify-center gap-2"
             >
               <Zap className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-              <span>Book / Inquire for this Service</span>
+              <span>Request Quote for this Service</span>
             </button>
           </div>
 
@@ -369,10 +369,10 @@ export const QuickQuoteModal: React.FC<QuickQuoteModalProps> = ({
                 </p>
               </div>
 
-              {/* Tracking Code Box */}
+              {/* Reference Code Box */}
               <div className="p-4 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-2">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                  Your Live Tracking Code
+                  Your Reference Code
                 </span>
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-3xl font-black font-mono tracking-widest text-emerald-400">
@@ -387,29 +387,15 @@ export const QuickQuoteModal: React.FC<QuickQuoteModalProps> = ({
                   </button>
                 </div>
                 <p className="text-[11px] text-slate-400">
-                  Use this code anytime to monitor real-time diagnostic progress.
+                  Save this code as your official service ticket reference with our Ikeja shop.
                 </p>
               </div>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                {onTrackTicket && (
-                  <button
-                    onClick={() => {
-                      const code = createdTicket.trackingCode;
-                      handleResetAndClose();
-                      onTrackTicket(code);
-                    }}
-                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md shadow-blue-600/20 flex items-center justify-center gap-2"
-                  >
-                    <span>Track Live Status Now</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                )}
-
                 <button
                   onClick={handleWhatsAppTicket}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
                   <span>WhatsApp Lead Engineer</span>

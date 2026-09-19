@@ -54,7 +54,7 @@ export default function App() {
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}?text=${text}`, '_blank');
   };
 
-  const handleBookServiceFromModal = (serviceTitle: string) => {
+  const handleRequestServiceFromModal = (serviceTitle: string) => {
     setSelectedService(null);
     handleOpenQuote(serviceTitle);
   };
@@ -66,7 +66,6 @@ export default function App() {
         {/* Top Fixed Header Navbar */}
         <Navbar 
           onOpenQuoteModal={handleOpenQuote}
-          onOpenTrackerModal={() => handleOpenTracker()}
           onOpenPortalModal={() => setPortalModalOpen(true)}
         />
 
@@ -85,7 +84,6 @@ export default function App() {
           {/* Section 3: REPAIRS (Green + Dark Charcoal Theme) */}
           <RepairsSection 
             onOpenQuoteModal={handleOpenQuote}
-            onOpenTrackerModal={() => handleOpenTracker()}
           />
 
           {/* Section 4: PRODUCTS (Orange + White Theme) */}
@@ -103,7 +101,6 @@ export default function App() {
           {/* Section 7: CONTACT (Cyan + Dark Charcoal Theme) */}
           <ContactSection 
             initialService={quotePrefillCategory}
-            onTrackTicket={(code) => handleOpenTracker(code)}
           />
 
         </main>
@@ -111,7 +108,6 @@ export default function App() {
         {/* Footer */}
         <Footer 
           onOpenQuoteModal={handleOpenQuote}
-          onOpenTrackerModal={() => handleOpenTracker()}
           onOpenPortalModal={() => setPortalModalOpen(true)}
         />
 
@@ -122,7 +118,7 @@ export default function App() {
         <ServiceDetailModal 
           service={selectedService}
           onClose={() => setSelectedService(null)}
-          onBookService={handleBookServiceFromModal}
+          onRequestQuote={handleRequestServiceFromModal}
         />
 
         <ProductDetailModal 
@@ -135,7 +131,6 @@ export default function App() {
           isOpen={quoteModalOpen}
           onClose={() => setQuoteModalOpen(false)}
           prefillService={quotePrefillCategory}
-          onTrackTicket={(code) => handleOpenTracker(code)}
         />
 
         {/* Firebase Powered Modals */}
@@ -148,6 +143,7 @@ export default function App() {
         <UserPortalModal 
           isOpen={portalModalOpen}
           onClose={() => setPortalModalOpen(false)}
+          onOpenQuoteModal={() => handleOpenQuote()}
         />
 
       </div>

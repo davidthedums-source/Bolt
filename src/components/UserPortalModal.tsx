@@ -35,7 +35,7 @@ import { GmailHub } from './GmailHub';
 interface UserPortalModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onTrackTicket: (trackingCode: string) => void;
+  onTrackTicket?: (trackingCode: string) => void;
   onOpenQuoteModal: () => void;
 }
 
@@ -267,7 +267,7 @@ export const UserPortalModal: React.FC<UserPortalModalProps> = ({
                   Welcome to Bolt Computer Services
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1.5">
-                  Sign in with Google to automatically track all your repair jobs, receive diagnostic estimates, and view historical service invoices securely in Cloud Firestore.
+                  Sign in with Google to view your repair jobs, receive diagnostic estimates, and view historical service invoices securely in Cloud Firestore.
                 </p>
               </div>
 
@@ -296,7 +296,7 @@ export const UserPortalModal: React.FC<UserPortalModalProps> = ({
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="text-base font-bold font-display text-slate-900">
-                        Your Repair &amp; Service Bookings
+                        Your Repair &amp; Service Requests
                       </h4>
                       <p className="text-xs text-slate-500">Live records connected to your Google profile</p>
                     </div>
@@ -309,7 +309,7 @@ export const UserPortalModal: React.FC<UserPortalModalProps> = ({
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-sm"
                     >
                       <PlusCircle className="w-4 h-4" />
-                      <span>Book New Service</span>
+                      <span>New Service Request</span>
                     </button>
                   </div>
 
@@ -369,21 +369,11 @@ export const UserPortalModal: React.FC<UserPortalModalProps> = ({
                                 setGmailSubject(`Inquiry on Ticket [${t.trackingCode}] - ${t.deviceType || 'Device'}`);
                                 setActiveTab('gmail');
                               }}
-                              className="px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                              className="px-3.5 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                               title="Send inquiry via Gmail"
                             >
                               <Mail className="w-3.5 h-3.5 text-red-600" />
-                              <span className="hidden sm:inline">Email Shop</span>
-                            </button>
-                            <button
-                              onClick={() => {
-                                onClose();
-                                onTrackTicket(t.trackingCode);
-                              }}
-                              className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
-                            >
-                              <span>Track Live</span>
-                              <ChevronRight className="w-3.5 h-3.5" />
+                              <span>Email Shop</span>
                             </button>
                           </div>
                         </div>
